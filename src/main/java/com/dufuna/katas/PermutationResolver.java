@@ -14,42 +14,24 @@ public class PermutationResolver
 //        String str = keyboard.nextLine();
 //        System.out.println(permutation(str));
 
-        System.out.println(isAnagram("art","tar"));
-    }
+        String str = "car";
 
-    public static void permutate(String str, int left, int right )
-    {
-        List<String> permutations = new ArrayList<>();
+        String newStr1 =  str.substring(0,1);
+        String newStr2 =  str.substring(1,2);
+        String newStr3 =  str.substring(2);
 
-        if (left == right)
-        {
-            System.out.println(str + " ");
-        }
-        else
-         {
-            for (int i = left; i <= right; i++)
-            {
-                String swapped = swap(str, left, i);
-                permutate(swapped, left + 1, right);
-                permutations.add(swapped);
-            }
-        }
-    }
+        System.out.println(newStr1);
+        System.out.println(newStr2);
+        System.out.println(newStr3);
 
-    public static String swap(String str, int i, int j)
-    {
-        char[] arrayOfCharacters = str.toCharArray();
-        char temp = arrayOfCharacters[i];
-        arrayOfCharacters[i] = arrayOfCharacters[j];
-        arrayOfCharacters[j] = temp;
 
-        return String.valueOf(arrayOfCharacters);
+       // System.out.println(isAnagram("art","tar"));
     }
 
     public static ArrayList<String> permutation(String word)
     {
 
-        ArrayList<String> result = new ArrayList<String>();
+        ArrayList<String> result = new ArrayList<>();
 
         if(word.isEmpty())
         {
@@ -61,7 +43,9 @@ public class PermutationResolver
             {
                 String shorter = word.substring(0,i) + word.substring(i+1);
 
-                ArrayList<String> shortPerm = permutation(shorter);
+                System.out.print(shorter);
+
+                ArrayList<String> shortPerm = permutation(shorter );
 
                 for(String s : shortPerm )
                 {
@@ -73,6 +57,37 @@ public class PermutationResolver
         return result ;
 
     }
+
+//    public static void permutate(String str, int left, int right )
+//    {
+//        List<String> permutations = new ArrayList<>();
+//
+//        if (left == right)
+//        {
+//            System.out.println(str + " ");
+//        }
+//        else
+//         {
+//            for (int i = left; i <= right; i++)
+//            {
+//                String swapped = swap(str, left, i);
+//                permutate(swapped, left + 1, right);
+//                permutations.add(swapped);
+//            }
+//        }
+//    }
+//
+//    public static String swap(String str, int i, int j)
+//    {
+//        char[] arrayOfCharacters = str.toCharArray();
+//        char temp = arrayOfCharacters[i];
+//        arrayOfCharacters[i] = arrayOfCharacters[j];
+//        arrayOfCharacters[j] = temp;
+//
+//        return String.valueOf(arrayOfCharacters);
+//    }
+
+
 
     public static Boolean isAnagram(String test, String anagram)
     {
